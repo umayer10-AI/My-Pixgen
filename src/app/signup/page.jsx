@@ -1,16 +1,38 @@
 "use client"
+import { authClient } from '@/lib/auth-client';
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
-import React from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const SignUpPage = () => {
 
     const {register,handleSubmit,watch,formState: { errors },} = useForm()
 
-    const handleClick = (v) => {
+    const router = useRouter()
+    const [s, setS] = useState(false)
+
+    const handleClick = async (v) => {
         console.log(v)
 
-        
+        const { data, error } = await authClient.signUp.email({
+            name: v.name,
+            email: v.email,
+            password: v.password,
+            image: v.url,
+            callbackURL: "/",
+        });
+
+        console.log({data,error})
+
+        if(data){
+            alert("Data Successfully")
+            router.push('/')
+        }
+        if(error){
+            alert(error.message)
+        }
 
     }
 
@@ -36,13 +58,13 @@ const SignUpPage = () => {
           isRequired
           name="email"
           type="email"
-        //   validate={(value) => {
-        //     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-        //       return "Please enter a valid email address";
-        //     }
+          validate={(value) => {
+            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
+              return "Please enter a valid email address";
+            }
 
-        //     return null;
-        //   }}
+            return null;
+          }}
         >
           <Label>Email</Label>
           <Input {...register("email", { required: "Email filled reqired" })} placeholder="john@example.com" />
@@ -53,23 +75,24 @@ const SignUpPage = () => {
           isRequired
           minLength={8}
           name="password"
-          type="password"
-        //   validate={(value) => {
-        //     if (value.length < 8) {
-        //       return "Password must be at least 8 characters";
-        //     }
-        //     if (!/[A-Z]/.test(value)) {
-        //       return "Password must contain at least one uppercase letter";
-        //     }
-        //     if (!/[0-9]/.test(value)) {
-        //       return "Password must contain at least one number";
-        //     }
+          type={s ? "text" : "password"}
+          validate={(value) => {
+            if (value.length < 8) {
+              return "Password must be at least 8 characters";
+            }
+            if (!/[A-Z]/.test(value)) {
+              return "Password must contain at least one uppercase letter";
+            }
+            if (!/[0-9]/.test(value)) {
+              return "Password must contain at least one number";
+            }
 
-        //     return null;
-        //   }}
+            return null;
+          }}
         >
           <Label>Password</Label>
           <Input {...register("password", { required: "Password filled reqired" })} placeholder="Enter your password" />
+          <span onClick={() => setS(!s)}>{s ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}</span>
           <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
           </Description>
