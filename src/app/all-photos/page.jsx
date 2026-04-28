@@ -3,10 +3,11 @@ import CategoryList from '@/component/CategoryList';
 import { getCarts } from '@/lib/fetching';
 import React from 'react';
 
-const page = async () => {
+const page = async ({searchParams}) => {
 
     const data = await getCarts()
-
+    const {category} = await searchParams
+    // console.log(category)
 
     return (
         <div>
