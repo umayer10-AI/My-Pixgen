@@ -48,10 +48,12 @@ const Navbar = () => {
           {
                 user? 
                 <div className="flex items-center gap-3">
-                  <Avatar size="sm">
-                    <Avatar.Image alt="John Doe" referrerPolicy="no-referrer" src={user?.image} />
-                    <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-                </Avatar>
+                  <Link href={'/profile'}>
+                    <Avatar size="sm">
+                      <Avatar.Image alt="John Doe" referrerPolicy="no-referrer" src={user?.image} />
+                      <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                  </Avatar>
+                  </Link>
                   <Button size="sm" onClick={async () => await authClient.signOut()} variant="danger">Sign Out</Button>
                 </div> 
                 : 
