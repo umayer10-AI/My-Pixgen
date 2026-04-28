@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import img from '../assets/image.png'
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 import { usePathname } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 
@@ -46,13 +46,20 @@ const Navbar = () => {
         <div className="flex gap-4">
             
           {
-                user? <Button onClick={async () => await authClient.signOut()} variant="danger">Sign Out</Button> 
+                user? 
+                <div className="flex items-center gap-3">
+                  <Avatar size="sm">
+                    <Avatar.Image alt="John Doe" referrerPolicy="no-referrer" src={user?.image} />
+                    <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                </Avatar>
+                  <Button size="sm" onClick={async () => await authClient.signOut()} variant="danger">Sign Out</Button>
+                </div> 
                 : 
                 <ul className="flex items-center gap-2">
-                <Button>
+                <Button size="sm">
                 <Link href={"/signup"}>SignUp</Link>
                 </Button>
-                <Button>
+                <Button size="sm">
                 <Link href={"/signin"}>SignIn</Link>
                 </Button>
           </ul>
