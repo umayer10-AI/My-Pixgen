@@ -7,7 +7,7 @@ const Banner = () => {
       {/* Overlay */}
       <div className="w-full h-full rounded-lg bg-black/50 flex items-center ">
         <div className="max-w-7xl mx-auto px-6 text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 max-w-2xl">
             Turn Ideas into Stunning AI Art
           </h1>
           <p className="text-lg md:text-xl mb-6 max-w-xl text-gray-200">

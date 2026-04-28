@@ -9,7 +9,7 @@ const Cart = async () => {
     console.log(data)
 
     return (
-        <div className='max-w-[90%] mx-auto'>
+        <div>
             <h2 className='text-2xl font-bold mt-7 mb-5'>Top Generations</h2>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
                 {

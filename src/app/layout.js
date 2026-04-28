@@ -20,7 +20,9 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
-        {children}
+
+        <main className='w-[90%] mx-auto'>{children}</main>
+        
         <Footer></Footer>
         </body>
     </html>

@@ -1,4 +1,4 @@
-import { Button } from '@heroui/react';
+import { Button, Chip } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
@@ -7,9 +7,11 @@ import { MdOutlineFileDownload } from 'react-icons/md';
 const CartItems = ({p}) => {
     return (
         <div className='space-y-3 border p-4 rounded-2xl shadow-xl'>
-            <div className='relative'>
-                <Image height={100} width={100} className='w-full h-60 object-cover rounded-2xl' src={p.imageUrl} alt='image'></Image>
-                <span className='bg-white rounded-full absolute top-2 right-2 px-2 text-xs'>{p.category}</span>
+            <div className='relative aspect-square'>
+                <Image fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className='object-cover rounded-2xl' src={p.imageUrl} alt='image'></Image>
+                <Chip size='sm' className='absolute top-2 right-2'>{p.category}</Chip>
             </div>
             <h2 className='font-semibold'>{p.title}</h2>
             <div className='flex items-center'>
