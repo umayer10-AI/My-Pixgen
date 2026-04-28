@@ -30,16 +30,16 @@ const Navbar = () => {
 
         <ul className="flex items-center gap-5 font-semibold">
           <li>
-            <Link href={"/"}>{p==='/' ? <Button className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>Home</Button>: <button className="cursor-pointer">Home</button>}</Link>
+            <Link href={"/"}>{p==='/' ? <Button size="sm" className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>Home</Button>: <button className="cursor-pointer">Home</button>}</Link>
           </li>
           <li>
-            <Link href={"/all-photos"}>{p==='/all-photos' ? <Button className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>All Photos</Button>: <button className="cursor-pointer">All Photos</button>}</Link>
+            <Link href={"/all-photos"}>{p==='/all-photos' ? <Button size="sm" className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>All Photos</Button>: <button className="cursor-pointer">All Photos</button>}</Link>
           </li>
           <li>
-            <Link href={"/pricing"}>{p==='/pricing' ? <Button className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>Pricing</Button>: <button className="cursor-pointer">Pricing</button>}</Link>
+            <Link href={"/pricing"}>{p==='/pricing' ? <Button size="sm" className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>Pricing</Button>: <button className="cursor-pointer">Pricing</button>}</Link>
           </li>
           <li>
-            <Link href={"/profile"}>{p==='/profile' ? <Button className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>Profile</Button>: <button className="cursor-pointer">Profile</button>}</Link>
+            <Link href={"/profile"}>{p==='/profile' ? <Button size="sm" className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>Profile</Button>: <button className="cursor-pointer">Profile</button>}</Link>
           </li>
         </ul>
 

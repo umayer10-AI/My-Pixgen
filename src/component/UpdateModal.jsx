@@ -1,7 +1,6 @@
 "use client";
 
 import { authClient } from "@/lib/auth-client";
-import {Envelope} from "@gravity-ui/icons";
 import {Button, Input, Label, Modal, Surface, TextField} from "@heroui/react";
 import { BiEdit } from "react-icons/bi";
 import { FaRegUser } from "react-icons/fa";
@@ -13,7 +12,6 @@ export function UpdateModal() {
 
         const name = e.target.name.value
         const url = e.target.url.value
-        console.log(name,url)
 
         await authClient.updateUser({
             name,
