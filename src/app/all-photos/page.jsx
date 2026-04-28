@@ -7,7 +7,8 @@ const page = async ({searchParams}) => {
 
     const data = await getCarts()
     const {category} = await searchParams
-    // console.log(category)
+    const a = category? data.filter(v => v.category.toLowerCase() === category.toLowerCase()) : data
+    console.log(a)
 
     return (
         <div>
@@ -17,7 +18,7 @@ const page = async ({searchParams}) => {
 
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
                 {
-                    data.map(v => <CartItems key={v.id} p={v}></CartItems>)
+                    a.map(v => <CartItems key={v.id} p={v}></CartItems>)
                 }
             </div>
         </div>

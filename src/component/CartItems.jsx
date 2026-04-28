@@ -5,7 +5,8 @@ import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { MdOutlineFileDownload } from 'react-icons/md';
 
-const CartItems = ({p}) => {
+const CartItems = async ({p}) => {
+
     return (
         <div className='space-y-3 border p-4 rounded-2xl shadow-xl'>
             <div className='relative aspect-square'>
