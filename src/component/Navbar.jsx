@@ -27,16 +27,16 @@ const Navbar = () => {
 
         <ul className="flex items-center gap-5 font-semibold">
           <li>
-            <Link href={"/"} className={p==='/' ? 'border-b border-b-green-600 text-green-600':""}>Home</Link>
+            <Link href={"/"}>{p==='/' ? <Button className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>Home</Button>: <button>Home</button>}</Link>
           </li>
           <li>
-            <Link href={"/all-photos"} className={p==='/all-photos' ? 'border-b border-b-green-600 text-green-600':""}>All Photos</Link>
+            <Link href={"/all-photos"}>{p==='/all-photos' ? <Button className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>All Photos</Button>: <button>All Photos</button>}</Link>
           </li>
           <li>
-            <Link href={"/pricing"} className={p==='/pricing' ? 'border-b border-b-green-600 text-green-600':""}>Pricing</Link>
+            <Link href={"/pricing"}>{p==='/pricing' ? <Button className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>Pricing</Button>: <button>Pricing</button>}</Link>
           </li>
           <li>
-            <Link href={"/profile"} className={p==='/profile' ? 'border-b border-b-green-600 text-green-600':""}>Profile</Link>
+            <Link href={"/profile"}>{p==='/profile' ? <Button className='bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'>Profile</Button>: <button>Profile</button>}</Link>
           </li>
         </ul>
 
