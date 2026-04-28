@@ -11,8 +11,7 @@ const page = async ({params}) => {
 
     const {id} = await params
     const res = await getCarts()
-    const data = res.filter(v => v.id === Number(id))
-    const p = data[0]
+    const p = res.find(v => v.id === Number(id))
 
     return (
         <div>
