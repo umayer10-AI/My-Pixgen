@@ -10,8 +10,12 @@ const Cart = async () => {
 
     return (
         <div className='max-w-[90%] mx-auto'>
-            <h2 className='text-2xl font-bold mt-7'>Top Generations</h2>
-            <CartItems></CartItems>
+            <h2 className='text-2xl font-bold mt-7 mb-5'>Top Generations</h2>
+            <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
+                {
+                    data.map(v => <CartItems key={v.id} p={v}></CartItems>)
+                }
+            </div>
         </div>
     );
 };

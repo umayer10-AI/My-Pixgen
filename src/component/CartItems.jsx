@@ -1,16 +1,22 @@
+import { Button } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
+import { FaHeart } from 'react-icons/fa';
+import { MdOutlineFileDownload } from 'react-icons/md';
 
-const CartItems = () => {
+const CartItems = ({p}) => {
     return (
-        <div>
-            <div>
-                <Image height={100} width={100} className='w-full h-60 object-cover rounded-2xl' src={"https://i.pinimg.com/1200x/04/6a/ef/046aef3824fc35cd1ad0bff0f253619a.jpg"} alt='image'></Image>
+        <div className='space-y-3 border p-4 rounded-2xl shadow-xl'>
+            <div className='relative'>
+                <Image height={100} width={100} className='w-full h-60 object-cover rounded-2xl' src={p.imageUrl} alt='image'></Image>
+                <span className='bg-white rounded-full absolute top-2 right-2 px-2 text-xs'>{p.category}</span>
             </div>
-            <h2 className='font-semibold'>Realistic Portrait AI</h2>
-            <div>
-                
+            <h2 className='font-semibold'>{p.title}</h2>
+            <div className='flex items-center'>
+                <h2 className='flex items-center gap-2 pr-5 border-r'><FaHeart /> {p.likes}</h2>
+                <h2 className='flex items-center gap-1 pl-5'><MdOutlineFileDownload className='text-2xl'/> {p.downloads}</h2>
             </div>
+            <Button className={'w-full bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'}>View</Button>
         </div>
     );
 };
