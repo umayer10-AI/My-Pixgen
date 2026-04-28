@@ -1,5 +1,6 @@
 "use client"
 import { authClient } from '@/lib/auth-client';
+import { Check } from '@gravity-ui/icons';
 import { Button, Card, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
@@ -101,6 +102,7 @@ const SignUpPage = () => {
 
         <div className="flex gap-2">
           <Button className={'bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'} type="submit">
+            <Check />
             Submit
           </Button>
           <Button type="reset" variant="secondary">

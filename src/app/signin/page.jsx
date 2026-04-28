@@ -9,7 +9,7 @@ import { FcGoogle } from 'react-icons/fc';
 
 const SignInPage = () => {
 
-    const {register,handleSubmit,watch,formState: { errors },} = useForm()
+    const {register,handleSubmit,watch,formState: { errors }} = useForm()
 
     const router = useRouter()
     const [s, setS] = useState(false)
