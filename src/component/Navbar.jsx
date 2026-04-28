@@ -4,10 +4,13 @@ import Link from "next/link";
 import img from '../assets/image.png'
 import { Button } from "@heroui/react";
 import { usePathname } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
 
     const p = usePathname()
+    const { data: session } = authClient.useSession()
+    const user = session?.user
 
   return (
     <div className="border-b">
@@ -41,14 +44,19 @@ const Navbar = () => {
         </ul>
 
         <div className="flex gap-4">
-          <ul className="flex items-center gap-2">
-            <Button>
-              <Link href={"/signup"}>SignUp</Link>
-            </Button>
-            <Button>
-              <Link href={"/signin"}>SignIn</Link>
-            </Button>
+            
+          {
+                user? <Button onClick={async () => await authClient.signOut()} variant="danger">Sign Out</Button> 
+                : 
+                <ul className="flex items-center gap-2">
+                <Button>
+                <Link href={"/signup"}>SignUp</Link>
+                </Button>
+                <Button>
+                <Link href={"/signin"}>SignIn</Link>
+                </Button>
           </ul>
+          }
         </div>
       </nav>
       </div>

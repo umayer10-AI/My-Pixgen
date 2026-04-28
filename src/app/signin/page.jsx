@@ -95,7 +95,7 @@ const SignInPage = () => {
           </Button>
         </div>
         <div>
-            <p className='text-center pb-2'>or</p>
+            <p className='text-center pb-2'>Or</p>
             <Button variant='outline' className={'w-full'}><FcGoogle/> Sign In With Google</Button>
         </div>
       </Form>
