@@ -100,7 +100,7 @@ const SignUpPage = () => {
         </TextField>
 
         <div className="flex gap-2">
-          <Button type="submit">
+          <Button className={'bg-linear-to-r from-pink-500 via-purple-500 bg-red-500'} type="submit">
             Submit
           </Button>
           <Button type="reset" variant="secondary">
