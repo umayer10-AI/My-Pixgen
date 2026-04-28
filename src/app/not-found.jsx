@@ -27,7 +27,7 @@ const NotFound = () => {
         {/* Button */}
         <div className="pt-4">
           <Link href="/">
-            <Button className="bg-gradient-to-r from-pink-500 via-purple-500 to-red-500 text-white">
+            <Button className="bg-linear-to-r from-pink-500 via-purple-500 to-red-500 text-white">
               Back to Home
             </Button>
           </Link>
